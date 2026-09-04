@@ -11,6 +11,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import "@/lib/sitemap";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 import { siteDataQuery } from "@/lib/site.queries";
 import { Header } from "@/components/site/Header";
@@ -80,6 +81,7 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
+  staticData: { sitemap: false },
   loader: ({ context }) => context.queryClient.ensureQueryData(siteDataQuery),
   head: () => ({
     meta: [

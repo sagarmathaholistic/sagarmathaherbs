@@ -6,6 +6,7 @@ import { formatNpr } from "@/lib/site-config";
 import { WhatsAppLink } from "@/components/site/WhatsAppButton";
 
 export const Route = createFileRoute("/products/$slug")({
+  staticData: { sitemap: true },
   loader: async ({ context, params }) => {
     const data = await context.queryClient.ensureQueryData(siteDataQuery);
     const product = data.products.find((item) => item.slug === params.slug);
