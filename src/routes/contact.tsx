@@ -6,6 +6,7 @@ import { SocialLinks } from "@/components/site/SocialLinks";
 import { WhatsAppLink } from "@/components/site/WhatsAppButton";
 
 export const Route = createFileRoute("/contact")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "Contact Himalaya Naturals — Talk to Our Wellness Team" },
