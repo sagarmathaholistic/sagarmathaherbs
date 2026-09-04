@@ -1,0 +1,2 @@
+# Serve Netlify's 404 handling for direct route access and refreshes
+/*  /index.html  200
