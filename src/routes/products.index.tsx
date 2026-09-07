@@ -6,6 +6,7 @@ import { ProductCard } from "@/components/site/ProductCard";
 import { cn } from "@/lib/utils";
 
 export const Route = createFileRoute("/products/")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "Shop Natural Supplements — Himalaya Naturals" },

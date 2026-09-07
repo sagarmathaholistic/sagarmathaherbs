@@ -6,6 +6,7 @@ import { ProductCard } from "@/components/site/ProductCard";
 import { WhatsAppLink } from "@/components/site/WhatsAppButton";
 
 export const Route = createFileRoute("/")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "Himalaya Naturals — Natural Nutraceutical Supplements in Nepal" },

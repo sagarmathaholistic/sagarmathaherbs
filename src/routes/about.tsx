@@ -4,6 +4,7 @@ import { Leaf } from "lucide-react";
 import { siteDataQuery } from "@/lib/site.queries";
 
 export const Route = createFileRoute("/about")({
+  staticData: { sitemap: true },
   head: () => ({
     meta: [
       { title: "About Us — Himalaya Naturals" },
