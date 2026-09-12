@@ -3,7 +3,7 @@ import { createFileRoute, useNavigate, Link } from "@tanstack/react-router";
 import { Leaf, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
-import { lovable } from "@/integrations/lovable";
+
 import { ensureAdminAccount } from "@/lib/admin-seed.functions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -93,19 +93,6 @@ function AuthPage() {
     }
   };
 
-  const onGoogle = async () => {
-    setLoading(true);
-    try {
-      await lovable.auth.signInWithOAuth("google", { redirect_uri: window.location.origin });
-    } catch (error) {
-      toast.error(
-        error instanceof Error ? error.message : "Google sign in is unavailable right now.",
-      );
-    } finally {
-      setLoading(false);
-    }
-  };
-
   return (
     <div className="leaf-gradient flex min-h-screen items-center justify-center px-4 py-16">
       <div className="w-full max-w-sm rounded-3xl border border-border bg-card p-8 shadow-lift">
@@ -125,23 +112,7 @@ function AuthPage() {
             : "Sign up with your email address and a password."}
         </p>
 
-        <Button
-          type="button"
-          variant="outline"
-          className="mt-6 w-full"
-          disabled={loading}
-          onClick={onGoogle}
-        >
-          Continue with Google
-        </Button>
-
-        <div className="my-5 flex items-center gap-3 text-xs text-muted-foreground">
-          <span className="h-px flex-1 bg-border" />
-          or
-          <span className="h-px flex-1 bg-border" />
-        </div>
-
-        <form onSubmit={onSubmit} className="space-y-4">
+        <form onSubmit={onSubmit} className="mt-6 space-y-4">
           <div className="space-y-1.5">
             <Label htmlFor="username">{mode === "signin" ? "Username or email" : "Email"}</Label>
             <Input
